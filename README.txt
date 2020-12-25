@@ -4,8 +4,12 @@ Inspired by the SkyblockAddons mod.
 
 This version of Skyblock Helper has the following features
  - Chromomatron Helper
-    > Was only tested on the lowest difficulty, so it doesn't work on higher ones.
+    > Only works of lowest difficulty
+ - Harp Helper
+    > May not work if lag is too high
  - Stem Protection
 
 Commands:
- - sb!stem -> Toggles stem protection (off by default)
+ - sb!stem -> Toggles Stem Protection (off by default)
+ - sb!chrono -> Toggles Auto Chronomatron (off by default)
+ - sb!harp -> Toggles Auto Harp (off by default)
