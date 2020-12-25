@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber(modid = SkyblockHelper.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SH.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
 public class ClientCommands {
 
 	private static Minecraft mc = Minecraft.getInstance();
@@ -15,12 +15,27 @@ public class ClientCommands {
 	@SubscribeEvent
 	public static void onClientChatEvent(ClientChatEvent event) {
 		String message = event.getOriginalMessage();
-		if (message.equals("sb!stem")) {
+		if (message.startsWith("sb!")) {
+			switch (message) {
+			case "sb!stem":
+				StemProtection.isActive = !StemProtection.isActive;
+				SH.sendMessage("\u00a7bStem Protection \u00a76" + (StemProtection.isActive ? "[ON]" : "[OFF]"));
+				break;
+			case "sb!chrono":
+				ChronomatronHelper.isAuto = !ChronomatronHelper.isAuto;
+				SH.sendMessage(
+						"\u00a7bAutomatic Chronomatron \u00a76" + (ChronomatronHelper.isAuto ? "[ON]" : "[OFF]"));
+				break;
+			case "sb!harp":
+				HarpHelper.isAuto = !HarpHelper.isAuto;
+				SH.sendMessage("\u00a7bAutomatic Harp \u00a76" + (HarpHelper.isAuto ? "[ON]" : "[OFF]"));
+				break;
+			default:
+				SH.sendMessage("This Skyblock Helper command doesn't exist");
+				break;
+			}
 			event.setCanceled(true);
 			mc.ingameGUI.getChatGUI().addToSentMessages(message);
-			StemProtection.isActive = !StemProtection.isActive;
-			SkyblockHelper.sendMessage("\u00a7bStem Protection \u00a76" + (StemProtection.isActive ? "[ON]" : "[OFF]"));
-
 		}
 	}
 }

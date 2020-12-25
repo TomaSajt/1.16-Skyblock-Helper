@@ -8,12 +8,12 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod(SkyblockHelper.MOD_ID)
-public class SkyblockHelper {
+@Mod(SH.MOD_ID)
+public class SH {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "skyblock_helper";
 
-	public SkyblockHelper() {
+	public SH() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

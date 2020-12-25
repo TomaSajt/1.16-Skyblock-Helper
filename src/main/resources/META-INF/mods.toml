@@ -4,7 +4,7 @@ license="All rights reserved"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 modId="skyblock_helper" #mandatory
-version="${file.jarVersion}" #mandatory
+version="1.1" #mandatory
 displayName="1.16 Skyblock Helper" #mandatory
 # The description text for the mod (multi line!) (#mandatory)
 description='''

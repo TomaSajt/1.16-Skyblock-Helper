@@ -12,7 +12,7 @@ import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber(modid = SkyblockHelper.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SH.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
 public class StemProtection {
 
 	private static Minecraft mc = Minecraft.getInstance();
@@ -40,7 +40,7 @@ public class StemProtection {
 					event.setCanceled(true);
 					if (cooldown == 0) {
 						cooldown += 20;
-						SkyblockHelper.sendMessage("Cannot break stems while Stem Protection is ON");
+						SH.sendMessage("Cannot break stems while Stem Protection is ON");
 					}
 				}
 			}
