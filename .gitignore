@@ -27,6 +27,6 @@ forge*changelog.txt
 # Extras
 *.bat
 gradlew
-gradle.propeties
+gradle.properties
 build.gradle
 LICENSE.txt
