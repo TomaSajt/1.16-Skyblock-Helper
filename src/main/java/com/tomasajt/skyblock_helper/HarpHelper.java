@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @EventBusSubscriber(modid = SH.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
-public class HarpHelper{
+public class HarpHelper {
 
 	private static Minecraft mc = Minecraft.getInstance();
 	public static boolean isAuto = false;

@@ -19,19 +19,18 @@ public class ClientCommands {
 			switch (message) {
 			case "sb!stem":
 				StemProtection.isActive = !StemProtection.isActive;
-				SH.sendMessage("\u00a7bStem Protection \u00a76" + (StemProtection.isActive ? "[ON]" : "[OFF]"));
+				SH.msg("\u00a7bStem Protection \u00a76" + (StemProtection.isActive ? "[ON]" : "[OFF]"));
 				break;
 			case "sb!chrono":
 				ChronomatronHelper.isAuto = !ChronomatronHelper.isAuto;
-				SH.sendMessage(
-						"\u00a7bAutomatic Chronomatron \u00a76" + (ChronomatronHelper.isAuto ? "[ON]" : "[OFF]"));
+				SH.msg("\u00a7bAutomatic Chronomatron \u00a76" + (ChronomatronHelper.isAuto ? "[ON]" : "[OFF]"));
 				break;
 			case "sb!harp":
 				HarpHelper.isAuto = !HarpHelper.isAuto;
-				SH.sendMessage("\u00a7bAutomatic Harp \u00a76" + (HarpHelper.isAuto ? "[ON]" : "[OFF]"));
+				SH.msg("\u00a7bAutomatic Harp \u00a76" + (HarpHelper.isAuto ? "[ON]" : "[OFF]"));
 				break;
 			default:
-				SH.sendMessage("This Skyblock Helper command doesn't exist");
+				SH.msg("This Skyblock Helper command doesn't exist");
 				break;
 			}
 			event.setCanceled(true);

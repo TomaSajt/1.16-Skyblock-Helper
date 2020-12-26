@@ -108,7 +108,8 @@ public class ChronomatronHelper {
 								id = r.nextInt(3) + 21;
 								break;
 							}
-							mc.playerController.windowClick(chestContainer.windowId, id, 0, ClickType.PICKUP, mc.player);
+							mc.playerController.windowClick(chestContainer.windowId, id, 0, ClickType.PICKUP,
+									mc.player);
 							cooldown += waitTime;
 							i++;
 						}

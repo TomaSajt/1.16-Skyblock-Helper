@@ -16,8 +16,7 @@ public class SH {
 	public SH() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-
-	public static void sendMessage(Object message) {
+	public static void msg(Object message) {
 		Minecraft mc = Minecraft.getInstance();
 		mc.ingameGUI.getChatGUI().printChatMessage(new StringTextComponent(message.toString()));
 	}

@@ -40,7 +40,7 @@ public class StemProtection {
 					event.setCanceled(true);
 					if (cooldown == 0) {
 						cooldown += 20;
-						SH.sendMessage("Cannot break stems while Stem Protection is ON");
+						SH.msg("Cannot break stems while Stem Protection is ON");
 					}
 				}
 			}
