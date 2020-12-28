@@ -20,5 +20,4 @@ public class SH {
 		Minecraft mc = Minecraft.getInstance();
 		mc.ingameGUI.getChatGUI().printChatMessage(new StringTextComponent(message.toString()));
 	}
-	
 }
