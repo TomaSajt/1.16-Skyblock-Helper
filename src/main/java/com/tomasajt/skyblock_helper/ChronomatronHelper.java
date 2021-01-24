@@ -2,7 +2,6 @@ package com.tomasajt.skyblock_helper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
@@ -13,14 +12,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.event.TickEvent.Phase;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber(modid = SH.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber
 public class ChronomatronHelper {
 
 	private static Minecraft mc = Minecraft.getInstance();
@@ -29,9 +26,8 @@ public class ChronomatronHelper {
 	private static Screen lastScreen = null;
 	private static int cooldown = 0;
 	private static int i = 0;
-	private static Random r = new Random();
 	private static final int waitTime = 10;
-	public static boolean isAuto = false;
+	public static boolean isOn = false;
 
 	@SubscribeEvent
 	public static void onClientTickEvent(ClientTickEvent event) {
@@ -68,6 +64,11 @@ public class ChronomatronHelper {
 							indexes.add(i+9);
 						}
 					}
+					for (int i = 36; i < 45; i++) {
+						if (isTerracotta(inv.get(i).getItem())) {
+							indexes.add(i-9);
+						}
+					}
 					listening = false;
 					cooldown = waitTime;
 
@@ -77,7 +78,7 @@ public class ChronomatronHelper {
 					listening = true;
 					cooldown = 0;
 					i = 0;
-				} else if (isAuto) {
+				} else if (isOn) {
 					if (cooldown == 0) {
 						if (i < indexes.size()) {
 							mc.playerController.windowClick(chestContainer.windowId, indexes.get(i), 0, ClickType.PICKUP,

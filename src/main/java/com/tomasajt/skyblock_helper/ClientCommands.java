@@ -1,13 +1,11 @@
 package com.tomasajt.skyblock_helper;
 
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber(modid = SH.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber
 public class ClientCommands {
 
 	private static Minecraft mc = Minecraft.getInstance();
@@ -18,19 +16,27 @@ public class ClientCommands {
 		if (message.startsWith("sb!")) {
 			switch (message) {
 			case "sb!stem":
-				StemProtection.isActive = !StemProtection.isActive;
-				SH.msg("\u00a7bStem Protection \u00a76" + (StemProtection.isActive ? "[ON]" : "[OFF]"));
+				StemProtection.isOn = !StemProtection.isOn;
+				SkyblockHelper.msg("\u00a7bStem Protection \u00a76" + (StemProtection.isOn ? "[ON]" : "[OFF]"));
 				break;
 			case "sb!chrono":
-				ChronomatronHelper.isAuto = !ChronomatronHelper.isAuto;
-				SH.msg("\u00a7bAutomatic Chronomatron \u00a76" + (ChronomatronHelper.isAuto ? "[ON]" : "[OFF]"));
+				ChronomatronHelper.isOn = !ChronomatronHelper.isOn;
+				SkyblockHelper.msg("\u00a7bAutomatic Chronomatron \u00a76" + (ChronomatronHelper.isOn ? "[ON]" : "[OFF]"));
 				break;
 			case "sb!harp":
-				HarpHelper.isAuto = !HarpHelper.isAuto;
-				SH.msg("\u00a7bAutomatic Harp \u00a76" + (HarpHelper.isAuto ? "[ON]" : "[OFF]"));
+				HarpHelper.isOn = !HarpHelper.isOn;
+				SkyblockHelper.msg("\u00a7bAutomatic Harp \u00a76" + (HarpHelper.isOn ? "[ON]" : "[OFF]"));
+				break;
+			case "sb!titanium":
+				TitaniumScanner.isOn = !TitaniumScanner.isOn;
+				SkyblockHelper.msg("\u00a7bTitanium Scanner \u00a76" + (TitaniumScanner.isOn ? "[ON]" : "[OFF]"));
+				break;
+			case "sb!fairy":
+				FairSoulFinder.isOn = !FairSoulFinder.isOn;
+				SkyblockHelper.msg("\u00a7bFairy Soul Finder \u00a76" + (FairSoulFinder.isOn ? "[ON]" : "[OFF]"));
 				break;
 			default:
-				SH.msg("This Skyblock Helper command doesn't exist");
+				SkyblockHelper.msg("This Skyblock Helper command doesn't exist");
 				break;
 			}
 			event.setCanceled(true);

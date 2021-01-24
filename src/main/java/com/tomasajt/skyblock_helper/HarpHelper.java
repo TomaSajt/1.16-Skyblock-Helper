@@ -9,23 +9,21 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber(modid = SH.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber
 public class HarpHelper {
 
 	private static Minecraft mc = Minecraft.getInstance();
-	public static boolean isAuto = false;
+	public static boolean isOn = false;
 	public static Item[] prevItems = new Item[36];
 
 	@SubscribeEvent
 	public static void onPlayerTickEvent(PlayerTickEvent event) {
-		if (event.side == LogicalSide.CLIENT && isAuto) {
+		if (event.side == LogicalSide.CLIENT && isOn) {
 			Screen screen = mc.currentScreen;
 			if (screen instanceof ChestScreen) {
 				ChestScreen chestScreen = (ChestScreen) screen;
